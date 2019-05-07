@@ -34,7 +34,9 @@ activityDF <- read_csv(file = "activity.csv")
 
 
 ```r
-ggplot(data = activityDF, aes(date, steps)) + geom_histogram(stat = "identity")
+#ggplot(data = activityDF, aes(date, steps)) + geom_histogram(stat = "identity")  #oops this wasn't a histogram
+per_day <- activityDF %>% group_by(date) %>% summarize(daily_sum = sum(steps))
+ggplot(data = per_day, aes(daily_sum)) + geom_histogram() + labs(x="Daily Steps", y="Frequency", main="Histogram of Daily Step Totals")
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
