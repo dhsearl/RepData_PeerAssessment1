@@ -9,3 +9,6 @@
 *.Rdx   binary
 *.Rmd	text
 *.R  	text
+
+* linguist-vendored
+*.Rmd linguist-language=R
